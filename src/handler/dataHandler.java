@@ -6,43 +6,36 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import classes.Employee;
-
 public class dataHandler {
 	
-	public static ArrayList<String> readFile() {
+	public static void readFile() {
 		ArrayList<String> obtainedData = new ArrayList<String>();
 	try {
 		 File txtFile = new File("src/data/data.txt");
 	      Scanner scnReader = new Scanner(txtFile);
 	      while (scnReader.hasNextLine()) {
-	        String fila = scnReader.nextLine();
-	        obtainedData.add(fila);
+	        String row = scnReader.nextLine();
+	        obtainedData.add(row);
 	      }
 	      scnReader.close();
 	    } catch (FileNotFoundException e) {
 	      e.printStackTrace();
 	    }
 	splitData(obtainedData);
-	return obtainedData;
 	}
 	
-	public static void splitData(ArrayList<String> information) {
+	private static HashMap<String, String> splitData(ArrayList<String> information) {
 		int i;
-		HashMap<String, String>timeworked = new HashMap<String,String>();
+		ArrayList<String> employeeNames = new ArrayList<String>();
+		ArrayList<String> daysAndRanges = new ArrayList<String>();
+		HashMap<String, String> employeesAndRanges = new HashMap<String, String>();
+		
 		for(i=0;i<information.size();i++) {
-			Employee Employee = new Employee();
-			Employee.setName(information.get(i).substring(0, information.get(i).indexOf("=")));
-			System.out.println("Nombre del empleado:"+Employee.getName());
-			//Employee.setWorktime(worktime);
-			System.out.println("Intervalos de trabajo:");
-			System.out.println(information.get(i).substring(information.get(i).indexOf("=")+1,information.get(i).indexOf("=")+3));
+			String[] a = information.get(i).split("=");
+			employeeNames.add(a[0]);
+			daysAndRanges.add(a[1]);
+			employeesAndRanges.put(employeeNames.get(i), daysAndRanges.get(i));
 		}
+		return employeesAndRanges;
 	}
-	
-	
-	
-	
-	
-	
 }
