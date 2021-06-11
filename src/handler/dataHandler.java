@@ -7,10 +7,12 @@ import java.util.Scanner;
 
 public class dataHandler {
 	
-	public static void readFile() {
+	public dataHandler() {}
+	
+	public static ArrayList<String> readFile(String dataURL) {
 		ArrayList<String> obtainedData = new ArrayList<String>();
 	try {
-		 File txtFile = new File("src/data/data.txt");
+		 File txtFile = new File(dataURL);
 	      Scanner scnReader = new Scanner(txtFile);
 	      while (scnReader.hasNextLine()) {
 	        String row = scnReader.nextLine();
@@ -20,53 +22,62 @@ public class dataHandler {
 	    } catch (FileNotFoundException e) {
 	      e.printStackTrace();
 	    }
-	splitData(obtainedData);
+	return obtainedData;
 	}
 	
-	private static void splitData(ArrayList<String> information) {
+	public static ArrayList<String> splitName(ArrayList<String> information) {
 		int i;
 		ArrayList<String> employeeNames = new ArrayList<String>();
-		ArrayList<String> daysAndRanges = new ArrayList<String>();
 		
 		for(i=0;i<information.size();i++) {
 			String[] aux = information.get(i).split("=");
 			employeeNames.add(aux[0]);
-			daysAndRanges.add(aux[1]);
 		}
-		
-		weekWorked(daysAndRanges);
+		return employeeNames;
 	}
 	
-	private static void weekWorked(ArrayList<String> dataArray) {
-		int j,k;
+	public static ArrayList<String> splitWork(ArrayList<String> information) {
+		int i;
+		ArrayList<String> daysAndRanges = new ArrayList<String>();
+		
+		for(i=0;i<information.size();i++) {
+			String[] aux = information.get(i).split("=");
+			daysAndRanges.add(aux[1]);
+		}
+		return daysAndRanges;
+		
+	}
+	
+	public static ArrayList<String> weekWorked(ArrayList<String> dataArray) {
+		int i,j;
 		ArrayList<String> workedRanges = new ArrayList<String>();
-		for(j=0;j<dataArray.size();j++) {
-			String[] aux = dataArray.get(j).split(",");
-			for(k=0;k<aux.length;k++) {
-				workedRanges.add(aux[k]);
+		
+		for(i=0;i<dataArray.size();i++) {
+			String[] aux = dataArray.get(i).split(",");
+			for(j=0;j<aux.length;j++) {
+				workedRanges.add(aux[j]);
 			}
 		}
-		daysWorked(workedRanges);
-		rangeWorked(workedRanges);
+		return workedRanges;
 	}
 	
 	public static ArrayList<String> daysWorked(ArrayList<String> dataArray) {
-		int l;
-		ArrayList<String> weekdays = new ArrayList<String>();
+		int i;
+		ArrayList<String> weekDays = new ArrayList<String>();
 		
-		for(l=0;l<dataArray.size();l++) {
-			weekdays.add(dataArray.get(l).substring(0, 2));
+		for(i=0;i<dataArray.size();i++) {
+			weekDays.add(dataArray.get(i).substring(0, 2));
 		}
-		return weekdays;
+		return weekDays;
 	}
 	
 	public static ArrayList<String> rangeWorked(ArrayList<String> dataArray) {
-		int m;
-		ArrayList<String> timerange = new ArrayList<String>();
+		int i;
+		ArrayList<String> timeRange = new ArrayList<String>();
 		
-		for(m=0;m<dataArray.size();m++) {
-			timerange.add(dataArray.get(m).substring(2));
+		for(i=0;i<dataArray.size();i++) {
+			timeRange.add(dataArray.get(i).substring(2));
 		}
-		return timerange;
+		return timeRange;
 	}
 }

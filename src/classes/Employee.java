@@ -1,35 +1,24 @@
-package objects;
-
-import java.util.HashMap;
+package classes;
 
 public class Employee {
 	String name;
-	HashMap<String, String>worktime;
-
+	float salary;
 	
 	public Employee() {}
-
 
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
-	public HashMap<String, String> getWorktime() {
-		return worktime;
+	public float getSalary() {
+		return salary;
 	}
 
-
-	public void setWorktime(HashMap<String, String> worktime) {
-		this.worktime = worktime;
+	public void setSalary(float salary) {
+		this.salary = salary;
 	}
-	
-	
-
-	
 }
