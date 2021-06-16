@@ -7,8 +7,6 @@ import java.util.Scanner;
 
 public class dataHandler {
 	
-	public dataHandler() {}
-	
 	public static ArrayList<String> readFile(String dataURL) {
 		ArrayList<String> obtainedData = new ArrayList<String>();
 	try {
@@ -22,62 +20,38 @@ public class dataHandler {
 	    } catch (FileNotFoundException e) {
 	      e.printStackTrace();
 	    }
+	
 	return obtainedData;
+	
 	}
 	
-	public static ArrayList<String> splitName(ArrayList<String> information) {
-		int i;
-		ArrayList<String> employeeNames = new ArrayList<String>();
+	public static String splitName(String fileLine) {
 		
-		for(i=0;i<information.size();i++) {
-			String[] aux = information.get(i).split("=");
-			employeeNames.add(aux[0]);
-		}
-		return employeeNames;
+		String[] aux = fileLine.split("=");
+		return aux[0];
 	}
 	
-	public static ArrayList<String> splitWork(ArrayList<String> information) {
-		int i;
-		ArrayList<String> daysAndRanges = new ArrayList<String>();
-		
-		for(i=0;i<information.size();i++) {
-			String[] aux = information.get(i).split("=");
-			daysAndRanges.add(aux[1]);
-		}
-		return daysAndRanges;
-		
+	public static String splitWork(String fileLine) {
+		String[] aux = fileLine.split("=");
+		return aux[1];
 	}
 	
-	public static ArrayList<String> weekWorked(ArrayList<String> dataArray) {
-		int i,j;
-		ArrayList<String> workedRanges = new ArrayList<String>();
-		
-		for(i=0;i<dataArray.size();i++) {
-			String[] aux = dataArray.get(i).split(",");
-			for(j=0;j<aux.length;j++) {
-				workedRanges.add(aux[j]);
-			}
-		}
+	public static String[] weekWorked(String dataArray) {
+		dataArray.split(",");
+		String[] workedRanges = dataArray.split(",");
 		return workedRanges;
+
 	}
 	
-	public static ArrayList<String> daysWorked(ArrayList<String> dataArray) {
-		int i;
-		ArrayList<String> weekDays = new ArrayList<String>();
+	public static String getAcronymdayWorked(String rangeWorked) {
 		
-		for(i=0;i<dataArray.size();i++) {
-			weekDays.add(dataArray.get(i).substring(0, 2));
-		}
-		return weekDays;
+		String dayAcronym = rangeWorked.substring(0, 2);
+		return dayAcronym;
 	}
 	
-	public static ArrayList<String> rangeWorked(ArrayList<String> dataArray) {
-		int i;
-		ArrayList<String> timeRange = new ArrayList<String>();
+	public static String getRangeWorked(String rangeWorked) {
 		
-		for(i=0;i<dataArray.size();i++) {
-			timeRange.add(dataArray.get(i).substring(2));
-		}
-		return timeRange;
+		String range = rangeWorked.substring(2);
+		return range;
 	}
 }

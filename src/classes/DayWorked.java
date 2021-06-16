@@ -1,10 +1,11 @@
 package classes;
 
+import handler.hourHandler;
+
 public class DayWorked {
 	
-	String dayAcronym;
-	String startTime;
-	String finishTime;
+	private String dayAcronym;
+	private boolean weekOrWeekend;
 	
 	public String getDayAcronym() {
 		return dayAcronym;
@@ -12,16 +13,31 @@ public class DayWorked {
 	public void setDayAcronym(String dayAcronym) {
 		this.dayAcronym = dayAcronym;
 	}
-	public String getStartTime() {
-		return startTime;
+	public boolean getWeekOrWeekend() {
+		return weekOrWeekend;
 	}
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
+	public void setWeekOrWeekend(boolean weekOrWeekend) {
+		this.weekOrWeekend = weekOrWeekend;
 	}
-	public String getFinishTime() {
-		return finishTime;
+	
+	public DayWorked(String dayAcronym, boolean weekOrWeekend) {
+		super();
+		this.dayAcronym = dayAcronym;
+		this.weekOrWeekend = weekOrWeekend;
 	}
-	public void setFinishTime(String finishTime) {
-		this.finishTime = finishTime;
+	public int priceforDay(String range) {
+		
+		HourWorked auxiliar = new HourWorked(range, range);
+
+		int priceAux = 0;
+		if(this.getWeekOrWeekend()) {
+			priceAux+=hourHandler.getPriceWeekday(auxiliar.getStartHour(),auxiliar.getFinishHour());
+		}
+		if(!this.getWeekOrWeekend()) {
+			priceAux+=hourHandler.getPriceWeekend(auxiliar.getStartHour(), auxiliar.getFinishHour());
+		}
+		
+		return priceAux;
 	}
+
 }

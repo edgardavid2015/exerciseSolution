@@ -3,23 +3,27 @@ package main;
 import java.util.ArrayList;
 
 import classes.Employee;
-import handler.*;
+import handler.dataHandler;
 
 public class Main {
 	
 	public static void main(String []args) {
-		
+		int i,j;
 		ArrayList<Employee> employees = new ArrayList<Employee>();
+		String employeeName = new String();
+		String weekWorked = new String();
+		Employee employee = new Employee();
 		
-	    for (String element : dataHandler.splitName(dataHandler.readFile("src/data/data.txt"))) {
-	    	Employee employee = new Employee();
-	    	employee.setName(element);
+		for(i=0;i<dataHandler.readFile("src/data/data.txt").size();i++){
+	    	employeeName = dataHandler.splitName(dataHandler.readFile("src/data/data.txt").get(i));
+	    	weekWorked = dataHandler.splitWork(dataHandler.readFile("src/data/data.txt").get(i));
+	    	employee.setName(employeeName);
+	    	employee.setSalary(employee.salarytoPay(weekWorked));
 	    	employees.add(employee);
+	    	for (j = 0; j < employees.size(); j++) {
+				System.out.println("THE AMOUNT TO PAY TO "+employees.get(j).getName()+" IS "+employees.get(j).getSalary()+" USD");
+		    }
+	    	employees.clear();
 		}
-	    for (int i = 0; i < employees.size(); i++) {
-			System.out.println(employees.get(i).getName());
-		}
-
 	}
-
 }
