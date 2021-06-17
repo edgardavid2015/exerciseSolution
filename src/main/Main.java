@@ -14,6 +14,11 @@ public class Main {
 		String weekWorked = new String();
 		Employee employee = new Employee();
 		
+		System.out.println("DATA TO BE PROCESSED:");
+		for(i=0;i<dataHandler.readFile("src/data/data.txt").size();i++){
+			System.out.println(dataHandler.readFile("src/data/data.txt").get(i));
+			}
+		System.out.println("\nRESULT:");
 		for(i=0;i<dataHandler.readFile("src/data/data.txt").size();i++){
 	    	employeeName = dataHandler.splitName(dataHandler.readFile("src/data/data.txt").get(i));
 	    	weekWorked = dataHandler.splitWork(dataHandler.readFile("src/data/data.txt").get(i));
