@@ -78,9 +78,12 @@ In the development process, the first thing I did was create the Employee, DayWo
 Finally, I edited the README file in my Github repository to explain what I did to succeed in this exercise.
   </details>
 <details><summary>Intructions to run the program</summary>
-My program was made using Eclipse Phothon, so I recommend using the same Eclipse to run this program without problems.<br>
-The java version that I used is 1.8.0_271.<br>
-To change the data, you can edit the data.txt file that is located in data package.<br>
-Moreover, you can process a text file you want, just make sure that the name of the file is data.txt and the location is the data package.<br>
+My program was made using Eclipse Phothon, so I recommend using Eclipse to run this program without problems.<br>
+The java version that I have is 1.8.0_271.<br>
+First of all, you need to clone this project, you either can download as zip, clone it with https or any other options the Github offers.<br>
+Just search in Google "download Eclipse", select the first result, select your operating system, clic next, next, and Eclipse will be installed.<br>
+Once you have installed Eclipse, opent it, and select the option "Import", then the option "Projects from folder or archive" select the folder where you have cloned this project and select the project.<br>
 To start the program, go to main package, open the Main class and run this class.<br>
+To change the data, you have two options: first one, you can edit the data.txt file that is located in data package.<br>
+Or, you can process a text file you want, just make sure that the name of the file is data.txt and the location is the data package.<br>
   </details>
