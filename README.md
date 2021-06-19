@@ -19,6 +19,7 @@
 <details><summary>Architecture explanation</summary>
 For this exercise, I divided my program in the following packages:<br>
 classes, data, handler, main and tests.<br>
+<img src="https://i.imgur.com/HNr4sH3.jpg" alt="Packages" width="950" height="120"/><br>
 The classes package contains:<br>
 <ul>
 <li>Employee</li>
@@ -87,4 +88,8 @@ Once you have installed Eclipse, opent it, and select the option "Import", then 
 To start the program, go to main package, open the Main class and run this class.<br>
 To change the data, you have two options: first one, you can edit the data.txt file that is located in data package.<br>
 Or, you can process a text file you want, just make sure that the name of the file is data.txt and the location is the data package.<br>
+  </details>
+<details><summary>Screenshots</summary>
+Here is an image of the console after the program finished successfully:<br>
+<img src="https://i.imgur.com/DyJotyT.jpg" alt="Packages" width="600" height="220"/><br>
   </details>
