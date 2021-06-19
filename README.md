@@ -49,7 +49,7 @@ The handler package contains:<br>
 </ul>
 <li>hourHandler</li>
 <ul>
-<li>This class has the attributes WEEK and WEEKEND; and the methods: getStartHour, getFinishHour, convertToMinutes, getPriceWeekday and getPriceWeekend.</li>
+<li>This class has the attributes WEEK and WEEKEND. These are Array of strings containing the two first letters of week days and weekend days respectively; and the methods: getStartHour, getFinishHour, convertToMinutes, getPriceWeekday and getPriceWeekend.</li>
 </ul>
 </ul>
 The main package contains:<br>
