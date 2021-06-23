@@ -30,16 +30,8 @@ public class HourHandlerTest {
 	@Test
 	public void testGetPriceWeekday() {
 		int expected = 500;
-		int result = hourHandler.getPriceWeekday("05:00", "09:00");
+		int result = hourHandler.getWeekPrice("05:00", "09:00",10,5,8);
 		System.out.println(result);
 		assertEquals(expected, result);
 	}
-
-	@Test
-	public void testGetPriceWeekend() {
-		int expected = 40;
-		int result = hourHandler.getPriceWeekend("12:00", "14:00");
-		assertEquals(expected, result);
-	}
-
 }
